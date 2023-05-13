@@ -104,7 +104,7 @@ function InitializeTsumTsum () {
         currentColArray = currentColumn[grpinit]
         currentColArray[init].classList.add(`${grpinit}`)
         currentColArray[init].id = `${init}`
-        currentColArray[init].addEventListener("mousemove", startMatching)
+        currentColArray[init].addEventListener("touchmove", startMatching)
         field.appendChild(currentColArray[init])
         //tsumtsumstyle
         currentColArray[init].style.width = "45px"
@@ -134,22 +134,22 @@ function InitializeTsumTsum () {
 function startMatching (a) {
     if ((mouseDown == true) && (playState == 0)) {
         a.target.style.opacity = "0.5"
-        a.target.removeEventListener("mousemove", startMatching)
+        a.target.removeEventListener("touchmove", startMatching)
         numOfMom.push(a.target)
         numOfMomSelected.push(a.target)
         playState++
         currentRandMom = randMomSelect[a.target.className]
         momFinref = a.target.textContent//currentRandMom[currentColumn[a.target.className].indexOf(a.target)]
-        a.target.addEventListener("mouseup", removeMatching)
+        a.target.addEventListener("touchend", removeMatching)
         lastMomSelected = a.target
     }
     else if ((mouseDown == true) && (currentRandMom = randMomSelect[a.target.className]) && (playState == 1) && (a.target.textContent == momFinref)) {
-        a.target.removeEventListener("mousemove", startMatching)
+        a.target.removeEventListener("touchmove", startMatching)
         a.target.style.opacity = "0.5"
-        lastMomSelected.removeEventListener("mouseup", removeMatching)
+        lastMomSelected.removeEventListener("touchend", removeMatching)
         numOfMom.push(a.target)
         numOfMomSelected.push(a.target)
-        a.target.addEventListener("mouseup", startPopping)
+        a.target.addEventListener("touchend", startPopping)
     }
 }
 
@@ -194,7 +194,7 @@ function removeMatching(b) {
     numOfMom.splice(0, 1)
     playState = 0
     lastMomSelected = 0;
-    b.target.addEventListener("mousemove", startMatching)
+    b.target.addEventListener("touchmove", startMatching)
 }
 
 function startPopping() {
@@ -337,7 +337,7 @@ function teddypowerup() {
         while (pog < 7) {
             currentColArray3 = currentColumn[pog]
             while (ppog < lastRow) {
-                currentColArray3[ppog].removeEventListener("mousemove", startMatching)
+                currentColArray3[ppog].removeEventListener("touchmove", startMatching)
                 currentColArray3[ppog].style.opacity = "0"
                 numOfMom.push(currentColArray3[ppog])
                 checkWin()
