@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tsum Tsum</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .scoreheader {
+            width: 450px;
+            height: 90px;
+            display: flex;
+            border: solid;
+            border-color: white;
+            border-style: dashed;
+            border-radius: 20px;
+            background-color: rgb(64, 142, 172);
+            position: relative;
+        }
+        .scoreheader > div {
+            position: absolute;
+            top: 13px;
+        }
+        .scoreheader > button {
+            position: absolute;
+            top: 13px;
+        }
+        .redflexcontainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .playspace {
+            display: flex;
+            width: 450px;
+            height: 500px;
+            position: relative;
+            border: solid;
+            border-color: white;
+            border-style: dotted;
+            background-image: url(playspacepicture.png)
+        }
+        .miscfooter {
+            width: 450px;
+            height: 90px;
+            display: flex;
+            position: relative;
+            border: solid;
+            border-color: white;
+            border-style: dashed;
+            border-radius: 20px;
+            background-color: rgb(64, 142, 172);
+        }
+        .score {
+            color: white;
+            border: solid;
+            border-color: white;
+            border-radius: 20px;
+            width: 250px;
+            height: 60px;
+            background-color: darkseagreen;
+            font-weight: 800;
+            font-size: 30px;
+            left: 15px;
+            border-style: dashed;
+        }
+        .pause {
+            display: flex;
+            color: white;
+            border: solid;
+            border-color: white;
+            border-radius: 20px;
+            width: 60px;
+            height: 60px;
+            background-color:orange;
+            border-style: dashed;
+            left: 370px;
+            justify-content: center;
+            align-items: center;
+            font-weight: 950;
+            font-size: 40px;
+        }
+        .pause:hover {
+            background-color:rgba(255, 166, 0, 0.795);
+        }
+        .powerupselector {
+            display: flex;
+            color: white;
+            border: solid;
+            border-color: white;
+            border-radius: 15px;
+            width: 35px;
+            height: 35px;
+            background-color:orange;
+            border-style: dashed;
+            position: absolute;
+            left: 10px;
+            top: 21px;
+            background-image: url(littlemira.png)
+        }
+        .powerup {
+            display: flex;
+            color: white;
+            border: solid;
+            border-color: white;
+            border-radius: 20px;
+            width: 70px;
+            height: 70px;
+            background-color:orange;
+            border-style: dashed;
+            position: absolute;
+            left: 190px;
+            top: 10px;
+            background-image: url(teddy.png)
+        }
+        .timer {
+            display: flex;
+            color: white;
+            border: solid;
+            border-color: white;
+            border-radius: 20px;
+            width: 150px;
+            height: 50px;
+            background-color: lightcoral;
+            border-style: dotted;
+            position: absolute;
+            left: 290px;
+            top: 15px;
+            text-align: center;
+            font-size: 30px;
+        }
+        .powerupselector:hover {
+            background-color:rgba(255, 166, 0, 0.795);
+        }
+        .powerup:hover {
+            background-color:rgba(255, 166, 0, 0.795);
+        }
+    </style>
+</head>
+<body>
+    <div class="redflexcontainer">
+        <div class="scoreheader">
+            <div class="score">.  Score: 0</div>
+            <button class="pause">+</button>
+        </div>
+        <div class="playspace">
+            <div class="teddyface"></div>
+            <div class="miraface"></div>
+        </div>
+        <div class="miscfooter">
+            <button class="powerupselector"></button>
+            <button class="powerup"></button>
+            <div class="timer"></div>
+        </div>
+    </div>
+    <script src="scripter.js"></script>
+</body>
+</html>
