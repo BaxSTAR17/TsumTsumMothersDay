@@ -71,11 +71,11 @@ const powerFX = new Audio("POWERUP.mp3")
 
 bgMusic.play()
 
-field.addEventListener("mousedown", mousePress)
-field.addEventListener("mouseup", mouseReleased)
-pauser.addEventListener("click", pausingMoments)
-powerist.addEventListener("click", activatePowerup)
-backuppowerist.addEventListener("click", powerupSwitch)
+field.addEventListener("touchstart", mousePress)
+field.addEventListener("touchend", mouseReleased)
+pauser.addEventListener("touchstart", pausingMoments)
+powerist.addEventListener("touchstart", activatePowerup)
+backuppowerist.addEventListener("touchstart", powerupSwitch)
 
 InitializeGame();
 timist.textContent = `${powerupBatt}%`
@@ -320,7 +320,7 @@ function animateMira() {
 function upMira(miraface) {
     miraface.style.transition = "bottom 1s"
     miraface.style.transition = "left 1s"
-    miraface.style.bottom = "270px"
+    miraface.style.bottom = "390px"
     miraface.style.left = "170px"
 }
 
