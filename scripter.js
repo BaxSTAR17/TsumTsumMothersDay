@@ -72,7 +72,7 @@ const powerFX = new Audio("POWERUP.mp3")
 bgMusic.play()
 
 field.addEventListener("touchstart", mousePress)
-field.addEventListener("touchend", mouseReleased)
+field.addEventListener("touchcancel", mouseReleased)
 pauser.addEventListener("touchstart", pausingMoments)
 powerist.addEventListener("touchstart", activatePowerup)
 backuppowerist.addEventListener("touchstart", powerupSwitch)
@@ -140,16 +140,16 @@ function startMatching (a) {
         playState++
         currentRandMom = randMomSelect[a.target.className]
         momFinref = a.target.textContent//currentRandMom[currentColumn[a.target.className].indexOf(a.target)]
-        a.target.addEventListener("touchend", removeMatching)
+        a.target.addEventListener("touchcancel", removeMatching)
         lastMomSelected = a.target
     }
     else if ((mouseDown == true) && (currentRandMom = randMomSelect[a.target.className]) && (playState == 1) && (a.target.textContent == momFinref)) {
         a.target.removeEventListener("touchmove", startMatching)
         a.target.style.opacity = "0.5"
-        lastMomSelected.removeEventListener("touchend", removeMatching)
+        lastMomSelected.removeEventListener("touchcancel", removeMatching)
         numOfMom.push(a.target)
         numOfMomSelected.push(a.target)
-        a.target.addEventListener("touchend", startPopping)
+        a.target.addEventListener("touchcancel", startPopping)
     }
 }
 
@@ -358,10 +358,10 @@ function mirapowerup() {
         currentColArray2 = currentColumn[0]
         currentColArray3 = currentColumn[9]
         while (ppog < columnAmount) {
-            currentColArray3[ppog].removeEventListener("mousemove", startMatching)
+            currentColArray3[ppog].removeEventListener("touchemove", startMatching)
             currentColArray3[ppog].style.opacity = "0"
             numOfMom.push(currentColArray3[ppog])
-            currentColArray2[ppog].removeEventListener("mousemove", startMatching)
+            currentColArray2[ppog].removeEventListener("touchmove", startMatching)
             currentColArray2[ppog].style.opacity = "0"
             numOfMom.push(currentColArray2[ppog])
             checkWin()
@@ -370,10 +370,10 @@ function mirapowerup() {
         pog = 1
         while (pog < 10) {
             currentColArray3 = currentColumn[pog]
-            currentColArray3[0].removeEventListener("mousemove", startMatching)
+            currentColArray3[0].removeEventListener("touchmove", startMatching)
             currentColArray3[0].style.opacity = "0"
             numOfMom.push(currentColArray3[0])
-            currentColArray3[lastRow].removeEventListener("mousemove", startMatching)
+            currentColArray3[lastRow].removeEventListener("touchmove", startMatching)
             currentColArray3[lastRow].style.opacity = "0"
             numOfMom.push(currentColArray3[lastRow])
             checkWin()
