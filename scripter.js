@@ -149,7 +149,7 @@ function startMatching (a) {
         lastMomSelected.removeEventListener("touchcancel", removeMatching)
         numOfMom.push(a.target)
         numOfMomSelected.push(a.target)
-        a.target.addEventListener("touchcancel", startPopping)
+        a.target.addEventListener("touchend", startPopping)
     }
 }
 
